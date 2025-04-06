@@ -2,14 +2,13 @@ import fs from "fs";
 import path from "path";
 
 import pool from "./db.config.js";
-import logger from "../utils/logger.js";
-import { __dirname } from "../utils/dirname.util.js";
+import { __dirname } from "../utils/dirname.utils.js";
 
 async function runMigrations() {
   const migrationPath = path.join(__dirname, "../migrations");
 
   if (!fs.existsSync(migrationPath)) {
-    logger.error("Le dossier migrations n'existe pas.");
+    console.log("Le dossier migrations n'existe pas.");
     process.exit(1);
   }
 
@@ -33,7 +32,7 @@ async function runMigrations() {
         );
 
         if (existingMigration.length === 0) {
-          logger.info(`Execute : ${file}`);
+          console.log(`Execute : ${file}`);
           try {
             const sql = fs.readFileSync(filePath, "utf8");
             await pool.query(sql);
@@ -41,20 +40,20 @@ async function runMigrations() {
               file,
             ]);
           } catch (readErr) {
-            logger.error(
+            console.log(
               `Erreur lors de l'exécution du fichier ${file}:`,
               readErr
             );
           }
         } else {
-          logger.info(`Déjà migré : ${file}`);
+          console.log(`Déjà migré : ${file}`);
         }
       }
     }
 
-    logger.info("Migrations terminées avec succès.");
+    console.log("Migrations terminées avec succès.");
   } catch (err) {
-    logger.error("Erreur lors de la migration :", err);
+    console.log("Erreur lors de la migration :", err);
   } finally {
     await pool.end();
     process.exit(0);

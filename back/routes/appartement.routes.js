@@ -4,9 +4,9 @@ import appartementController from "../controllers/appartement.controller.js";
 
 const router = express.Router();
 
-router.get("/", appartementController.getAll);
-router.post("/", appartementController.create);
-router.put("/:id", appartementController.updateOne);
-router.delete("/:id", appartementController.deleteOne);
+router.get("/appartement/", appartementController.getAll);
+router.post("/appartement/", appartementController.create);
+router.put("/appartement/:numApp", appartementController.updateOne);
+router.delete("/appartement/:numApp", appartementController.deleteOne);
 
 export default router;
