@@ -83,13 +83,13 @@ const SidBar = () => {
           <li className={activeMenuItem === 'My Store' ? 'active' : ''}>
             <a href="/listsAppartement" onClick={() => handleMenuItemClick('My Store')}>
               <i className='bx bxs-detail'></i>
-              <span className="text">List Appartement</span>
+              <span className="text">Liste des appartements</span>
             </a>
           </li>
           <li className={activeMenuItem === 'Team' ? 'active' : ''}>
-            <a href="/ajoutAppartement" onClick={() => handleMenuItemClick('Team')}>
+            <a href="/ajoutAppartementSurSudBar" onClick={() => handleMenuItemClick('Team')}>
               <i className='bx bxs-add-to-queue' ></i>
-              <span className="text">Ajout Appartement</span>
+              <span className="text">Ajout d'appartement</span>
             </a>
           </li>
           <li className={activeMenuItem === 'Analytics' ? 'active' : ''}>
@@ -130,12 +130,12 @@ const SidBar = () => {
         }}>
         <nav>
             <i className="bx bx-menu menu" onClick={toggleSidebar}></i>
-            <a href="#" className="nav-link">Categories</a>
+            <a href="#" className="nav-link">Catégories</a>
             <form action="#" className={searchExpanded ? 'show' : ''}>
                 <div className="form-input">
                 <input 
                     type="search" 
-                    placeholder="Search..." 
+                    placeholder="Chercher..." 
                     className={darkTheme ? 'dark-input' : ''}
                 />
                 <button 
@@ -161,8 +161,8 @@ const SidBar = () => {
                 <div className="top">
                     <div className="profile">
                         <div className="info">
-                            <p className="admin-nom">Hey, <b>Fred</b></p>
-                            <small className="text-muted admin-grad">Admin</small>
+                            <p className="admin-nom">Mr, <b>Fred</b></p>
+                            <small className="text-muted admin-grad">Administrateur</small>
                         </div>
                     </div>
                 </div>
