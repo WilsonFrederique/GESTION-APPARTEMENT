@@ -108,8 +108,8 @@ const ContainerHome = () => {
                             <li><a className="active" href="/">Tableau de bord</a></li>
                         </ul>
                     </div>
-                    <a href="/ajoutAppartement" className="btn-download">
-                        <i className='bx bxs-plus-circle' ></i>
+                    <a href="/ajoutAppartementSurTBL" className="btn-download">
+                        <i className='bx bx-plus'></i>
                         <span className="text">AJOUTER</span>
                     </a>
                 </div>

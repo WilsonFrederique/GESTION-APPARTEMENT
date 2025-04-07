@@ -85,7 +85,7 @@ const ContainerListsAppartement = () => {
             </ul>
           </div>
           <a href="/ajoutAppartement" className="btn-download">
-            <i className='bx bxs-cloud-download'></i>
+            <i className='bx bx-plus'></i>
             <span className="text">AJOUTER</span>
           </a>
         </div>

@@ -56,6 +56,7 @@ const ContainerModifierAppartement = () => {
         
         try {
             await updateAppartement(formData);
+
             alert('Appartement modifié avec succès!');
             navigate('/listsAppartement');
         } catch (error) {
@@ -114,8 +115,7 @@ const ContainerModifierAppartement = () => {
                                         value={formData.loyer}
                                         onChange={handleInputChange}
                                         required
-                                        min="0"
-                                        step="100"
+                                        min="1"
                                     />
                                 </div>
                                 
