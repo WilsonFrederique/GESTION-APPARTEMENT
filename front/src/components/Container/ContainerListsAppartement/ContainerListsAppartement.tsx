@@ -1,4 +1,3 @@
-// src/components/ContainerListsAppartement/ContainerListsAppartement.tsx
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Appartement, getAllAppartement, deleteAppartement } from '../../../services/appartements_api';
@@ -18,15 +17,10 @@ const ContainerListsAppartement = () => {
     const fetchAppartements = async () => {
       try {
         const data = await getAllAppartement();
-        if (data) {
-          setAppartements(data);
-          calculateStats(data);
-        } else {
-          setError("Aucune donnée reçue");
-        }
+        setAppartements(data);
+        calculateStats(data);
       } catch (err) {
-        setError("Erreur lors du chargement des appartements");
-        console.error(err);
+        setError(err instanceof Error ? err.message : "Erreur inconnue");
       } finally {
         setLoading(false);
       }
@@ -66,20 +60,14 @@ const ContainerListsAppartement = () => {
         setAppartements(updatedAppartements);
         calculateStats(updatedAppartements);
       } catch (err) {
-        console.error("Erreur lors de la suppression:", err);
-        alert("Erreur lors de la suppression");
+        alert(err instanceof Error ? err.message : "Erreur inconnue");
       }
     }
   };
 
   const handleEdit = (numApp: number) => {
-    // Solution alternative 1
-    window.location.href = `/modifAppartement/${numApp}`;
-    
-    // Ou solution alternative 2
     navigate(`/modifAppartement/${numApp}`);
-    window.location.reload(); // Forcer le rechargement
-};
+  };
 
   if (loading) return <div className="loading">Chargement en cours...</div>;
   if (error) return <div className="error">{error}</div>;

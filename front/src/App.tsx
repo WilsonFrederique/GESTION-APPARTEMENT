@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-
 import Home from "./pages/Home/Home";
 import ListsAppartement from "./pages/ListsAppartement/ListsAppartement";
 import AjoutAppartement from "./pages/AjoutAppartement/AjoutAppartement";
