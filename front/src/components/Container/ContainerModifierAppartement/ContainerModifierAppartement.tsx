@@ -27,17 +27,12 @@ const ContainerModifierAppartement = () => {
                 }
 
                 const appartement = await getAppartement(num);
-                if (!appartement) {
-                    throw new Error("Appartement non trouvé");
-                }
-
                 setFormData({
                     numApp: appartement.numApp,
                     design: appartement.design,
                     loyer: appartement.loyer
                 });
             } catch (err) {
-                console.error('Erreur lors du chargement:', err);
                 setError(err instanceof Error ? err.message : "Erreur inconnue");
                 navigate('/listsAppartement');
             } finally {
@@ -61,10 +56,10 @@ const ContainerModifierAppartement = () => {
         
         try {
             await updateAppartement(formData);
+
             alert('Appartement modifié avec succès!');
             navigate('/listsAppartement');
         } catch (error) {
-            console.error('Erreur:', error);
             setError(error instanceof Error ? error.message : "Erreur lors de la modification");
         }
     };
@@ -120,8 +115,7 @@ const ContainerModifierAppartement = () => {
                                         value={formData.loyer}
                                         onChange={handleInputChange}
                                         required
-                                        min="0"
-                                        step="100"
+                                        min="1"
                                     />
                                 </div>
                                 

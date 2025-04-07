@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../ContainerAjoutAppartement/ContainerAjoutAppartement.css'
+import '../ContainerAjoutAppartementSurSidBar/ContainerAjoutAppartementSurSidBar.css'
 import { createAppartement } from '../../../services/appartements_api'
 
-const ContainerAjoutAppartement = () => {
+const ContainerAjoutAppartementSurSidBar = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState<{
         design: string;
@@ -58,11 +58,7 @@ const ContainerAjoutAppartement = () => {
                                 </li>
                                 <li><i className='bx bx-chevron-right' ></i></li>
                                 <li>
-                                    <a className="active" href="/listsAppartement">Liste des appartements</a>
-                                </li>
-                                <li><i className='bx bx-chevron-right' ></i></li>
-                                <li>
-                                    <a className="active" href="/ajoutAppartement">Ajout des appartements</a>
+                                    <a className="active" href="/ajoutAppartementSurSudBar">Ajout des appartements</a>
                                 </li>
                             </ul>
                         </div>
@@ -107,4 +103,4 @@ const ContainerAjoutAppartement = () => {
     )
 }
 
-export default ContainerAjoutAppartement
+export default ContainerAjoutAppartementSurSidBar
